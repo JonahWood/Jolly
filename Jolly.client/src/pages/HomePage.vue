@@ -1,22 +1,45 @@
 <template>
-  <div class="home flex-grow-1 d-flex flex-column align-items-center justify-content-center">
-    <div class="home-card p-5 bg-white rounded elevation-3">
-      <img
-        src="https://bcw.blob.core.windows.net/public/img/8600856373152463"
-        alt="CodeWorks Logo"
-        class="rounded-circle"
-      >
-      <h1 class="my-5 bg-dark text-white p-3 rounded text-center">
-        Vue 3 Starter
-      </h1>
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div v-if="!PWCheck" class="col-md-4">
+        <form @submit.prevent="submit()">
+          <label for="title">Blue or purple?</label>
+          <input v-model="editable.password" type="text" class="form-control" id="title">
+
+          <button type="submit" class="mt-1">Submit</button>
+        </form>
+      </div>
+      <div v-if="PWCheck" class="col-12">
+        <button>Close</button>
+      </div>
+      <div class="col-12">
+        <img v-if="PWCheck" src="https://codeworks.blob.core.windows.net/public/assets/img/projects/Airport.jpg" alt="">
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+import { ref, computed } from 'vue';
+import { AppState } from '../AppState';
+import { logger } from '../utils/Logger';
+
 export default {
   setup() {
-    return {}
+    let editable = ref({})
+    return {
+      editable,
+      PWCheck: computed(() => AppState.PWCheck),
+      submit() {
+        logger.log(editable.value.password)
+        if (editable.value.password == 'password') {
+          AppState.PWCheck = true
+        }
+      },
+      close() {
+        AppState.PWCheck = false
+      }
+    }
   }
 }
 </script>

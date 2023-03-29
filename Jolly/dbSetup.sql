@@ -6,3 +6,16 @@ CREATE TABLE IF NOT EXISTS accounts(
   email varchar(255) COMMENT 'User Email',
   picture varchar(255) COMMENT 'User Picture'
 ) default charset utf8 COMMENT '';
+
+CREATE TABLE passwords(
+  kee VARCHAR(1000) NOT NULL
+) default charset utf8 COMMENT '';
+
+DROP TABLE passwords;
+INSERT INTO passwords
+  (kee)
+  VALUES
+  ('cheeto')
+;
+
+

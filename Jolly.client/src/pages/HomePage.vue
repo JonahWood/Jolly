@@ -4,7 +4,7 @@
       <div v-if="!PWCheck" class="col-md-4">
         <form @submit.prevent="submit()">
           <label for="title">Blue or purple?</label>
-          <input v-model="editable.password" type="text" class="form-control" id="title">
+          <input required v-model="editable.password" type="text" class="form-control" id="title">
 
           <button type="submit" class="mt-1">Submit</button>
         </form>

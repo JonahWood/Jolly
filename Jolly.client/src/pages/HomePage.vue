@@ -20,20 +20,42 @@
 </template>
 
 <script>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted } from 'vue';
 import { AppState } from '../AppState';
 import { logger } from '../utils/Logger';
+import Pop from '../utils/Pop';
+import { passwordsService } from '../services/PasswordsService'
 
 export default {
   setup() {
     let editable = ref({})
+    async function getPW() {
+      try {
+        // await passwordsService.getPW()
+      }
+      catch (error) {
+        Pop.error(error.message)
+        logger.error(error)
+      }
+    }
+
+
     return {
       editable,
       PWCheck: computed(() => AppState.PWCheck),
-      submit() {
-        logger.log(editable.value.password)
-        if (editable.value.password == 'password') {
-          AppState.PWCheck = true
+      async submit() {
+        try {
+
+          logger.log(editable.value.password)
+          const pw = editable.value.password
+          await passwordsService.getPW(pw)
+          if (pw == 'password') {
+            AppState.PWCheck = true
+          }
+        }
+        catch (error) {
+          Pop.error(error.message)
+          logger.error(error)
         }
       },
       close() {

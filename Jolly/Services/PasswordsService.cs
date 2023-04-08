@@ -9,9 +9,9 @@ namespace Jolly.Services
             _repo = repo;
         }
 
-        internal Password Find()
+        internal List<Password> Find()
         {
-            Password password = _repo.Find();
+            List<Password> password = _repo.Find();
             return password;
         }
     }

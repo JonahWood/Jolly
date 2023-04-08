@@ -15,7 +15,7 @@ namespace Jolly.Controllers
         {
             try 
             {
-            Password password = _passwordsService.Find();
+            List<Password> password = _passwordsService.Find();
             return Ok(password);
             }
             catch (Exception e)

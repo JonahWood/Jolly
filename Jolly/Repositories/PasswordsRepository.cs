@@ -9,12 +9,12 @@ namespace Jolly.Repositories
             _db = db;
         }
 
-        internal Password Find()
+        internal List<Password> Find()
         {
             string sql = @"
             SELECT * FROM passwords;
             ";
-            List<Password> passwords = _db.Execute(sql);
+            List<Password> passwords = _db.Query<Password>(sql).ToList();
             return passwords;
         }
     }

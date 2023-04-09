@@ -42,7 +42,7 @@ export default {
 
     return {
       editable,
-      PWCheck: computed(() => AppState.PWCheck),
+      Pass: computed(() => AppState.PWCheck),
       async submit() {
         try {
 

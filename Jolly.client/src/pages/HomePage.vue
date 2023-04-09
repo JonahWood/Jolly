@@ -47,9 +47,9 @@ export default {
         try {
 
           logger.log(editable.value.password)
-          const pw = editable.value.password
-          await passwordsService.getPW(pw)
-          if (pw == 'password') {
+          const input = editable.value.password
+          await passwordsService.getPW(input)
+          if (input == 'password') {
             AppState.PWCheck = true
           }
         }

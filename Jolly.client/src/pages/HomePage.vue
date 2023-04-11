@@ -1,7 +1,7 @@
 <template>
-  <div class="container">
-    <div class="row d-flex justify-content-center">
-      <div v-if="!PWCheck" class="col-md-4">
+  <div class="container max-h">
+    <div class="row d-flex justify-content-center align-items-center max-h">
+      <div v-if="!PWCheck" class="col-md-4 d-flex justify-content-center align-items-center">
         <form @submit.prevent="submit()">
           <label for="title">Blue or purple?</label>
           <input required v-model="editable.password" type="text" class="form-control" id="title">
@@ -67,6 +67,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.max-h {
+  min-height: 100vh;
+}
+
 .home {
   display: grid;
   height: 80vh;

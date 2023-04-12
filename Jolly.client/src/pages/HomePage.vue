@@ -29,15 +29,6 @@ import { passwordsService } from '../services/PasswordsService'
 export default {
   setup() {
     let editable = ref({})
-    async function getPW() {
-      try {
-        // await passwordsService.getPW()
-      }
-      catch (error) {
-        Pop.error(error.message)
-        logger.error(error)
-      }
-    }
 
 
     return {

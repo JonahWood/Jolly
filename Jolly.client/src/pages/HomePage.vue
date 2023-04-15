@@ -9,10 +9,10 @@
           <button type="submit" class="mt-1">Submit</button>
         </form>
       </div>
-      <div v-if="PWCheck" class="col-12">
+      <div v-if="PWCheck" class="col-md-12">
         <button @click="close()">Close</button>
       </div>
-      <div class="col-12">
+      <div class="col-md-12">
         <img v-if="PWCheck" src="https://codeworks.blob.core.windows.net/public/assets/img/projects/Airport.jpg" alt="">
       </div>
     </div>

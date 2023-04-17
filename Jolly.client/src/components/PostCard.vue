@@ -1,5 +1,10 @@
 <template>
-    <p>{{ post?.body }}</p>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-12 d-flex justify-content-center rounded"><img :src="post?.img" alt=""></div>
+            <div class="col-12 d-flex justify-content-center">{{ post?.body }}</div>
+        </div>
+    </div>
 </template>
 
 

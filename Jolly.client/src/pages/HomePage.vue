@@ -14,7 +14,7 @@
       </div>
       <div v-if="posts">
 
-        <div class="col-md-12" v-for="p in posts">
+        <div class="col-md-12 postCard rounded my-2 py-2" v-for="p in posts">
           <PostCard :post="p" />
 
         </div>
@@ -79,6 +79,10 @@ export default {
 </script>
 
 <style scoped lang="scss">
+.postCard {
+  background-color: white;
+}
+
 .max-h {
   min-height: 100vh;
 }

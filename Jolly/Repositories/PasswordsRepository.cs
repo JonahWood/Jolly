@@ -1,21 +1,22 @@
-namespace Jolly.Repositories
+namespace Jolly.Repositories;
+
+public class PasswordsRepository
 {
-    public class PasswordsRepository
+    private readonly IDbConnection _db;
+
+    public PasswordsRepository(IDbConnection db)
     {
-        private readonly IDbConnection _db;
+        _db = db;
+    }
 
-        public PasswordsRepository(IDbConnection db)
-        {
-            _db = db;
-        }
-
-        internal List<Password> Find()
-        {
-            string sql = @"
-            SELECT * FROM passwords;
-            ";
-            List<Password> passwords = _db.Query<Password>(sql).ToList();
-            return passwords;
-        }
+    internal List<Password> GetAll()
+    {
+        string sql = @"
+        SELECT
+        *
+        FROM passwords;
+        ";
+        List<Password> passwords = _db.Query<Password>(sql).ToList();
+        return passwords;
     }
 }

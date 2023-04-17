@@ -80,7 +80,23 @@ export default {
 
 <style scoped lang="scss">
 .postCard {
-  background-color: white;
+  background: linear-gradient(-45deg, #369539, #3ce7e7, #198da1, #22b48f);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+
+  50% {
+    background-position: 100% 50%;
+  }
+
+  100% {
+    background-position: 0% 50%;
+  }
 }
 
 .max-h {

@@ -12,48 +12,69 @@
       <div v-if="PWCheck" class="col-md-12">
         <button @click="close()">Close</button>
       </div>
-      <div class="col-md-12">
-        <img v-if="Pass" src="https://codeworks.blob.core.windows.net/public/assets/img/projects/Airport.jpg" alt="">
+      <div v-if="posts">
+
+        <div class="col-md-12" v-for="p in posts">
+          <PostCard :post="p" />
+
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, watchEffect } from 'vue';
 import { AppState } from '../AppState';
 import { logger } from '../utils/Logger';
 import Pop from '../utils/Pop';
-import { passwordsService } from '../services/PasswordsService'
+import { passwordsService } from '../services/PasswordsService';
+import { postsService } from '../services/PostsService'
+import { router } from '../router';
+import { useRouter } from 'vue-router';
+import PostCard from '../components/PostCard.vue';
 
 export default {
   setup() {
-    let editable = ref({})
-
-
+    watchEffect(() => {
+      if (AppState.PWCheck) {
+        getAllPosts();
+      }
+    });
+    let editable = ref({});
+    let router = useRouter();
+    async function getAllPosts() {
+      try {
+        AppState.posts = [];
+        await postsService.getAllPosts();
+      }
+      catch (error) {
+        Pop.error(error.message);
+        logger.error(error);
+      }
+    }
     return {
       editable,
+      router,
       Pass: computed(() => AppState.PWCheck),
+      posts: computed(() => AppState.posts),
       async submit() {
         try {
-
-          logger.log(editable.value.password)
-          const input = editable.value.password
-          await passwordsService.getPW(input)
-          if (input == 'password') {
-            AppState.PWCheck = true
-          }
+          logger.log(editable.value.password);
+          const input = editable.value.password;
+          await passwordsService.getPW(input);
         }
         catch (error) {
-          Pop.error(error.message)
-          logger.error(error)
+          Pop.error(error.message);
+          logger.error(error);
         }
       },
       close() {
-        AppState.PWCheck = false
+        AppState.PWCheck = false;
       }
-    }
-  }
+    };
+  },
+  components: { PostCard }
 }
 </script>
 

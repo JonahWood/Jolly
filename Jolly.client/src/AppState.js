@@ -6,5 +6,8 @@ export const AppState = reactive({
   /** @type {import('./models/Account.js').Account} */
   account: {},
   PWCheck: false,
-  PWUCheck: null
+  PWUCheck: null,
+  posts: [],
+  activePost: {},
+  safe: false
 })

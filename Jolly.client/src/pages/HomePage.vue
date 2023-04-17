@@ -13,7 +13,7 @@
         <button @click="close()">Close</button>
       </div>
       <div class="col-md-12">
-        <img v-if="PWCheck" src="https://codeworks.blob.core.windows.net/public/assets/img/projects/Airport.jpg" alt="">
+        <img v-if="Pass" src="https://codeworks.blob.core.windows.net/public/assets/img/projects/Airport.jpg" alt="">
       </div>
     </div>
   </div>

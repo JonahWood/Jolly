@@ -25,10 +25,5 @@ INSERT INTO posts
 VALUES
 ('this is test ffrrrrooo!');
 DROP TABLE passwords;
-INSERT INTO passwords
-  (kee)
-  VALUES
-  ('cheeto')
-;
 
 

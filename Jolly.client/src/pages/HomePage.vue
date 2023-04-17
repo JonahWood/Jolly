@@ -83,6 +83,7 @@ export default {
   background: linear-gradient(-45deg, #369539, #3ce7e7, #198da1, #22b48f);
   background-size: 400% 400%;
   animation: gradient 15s ease infinite;
+  border: 2px solid rgba(0, 0, 0, 0.662);
 }
 
 @keyframes gradient {

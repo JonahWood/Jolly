@@ -1,7 +1,8 @@
 <template>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row justify-content-center">
-            <div class="col-12 d-flex justify-content-center rounded"><img :src="post?.img" alt=""></div>
+            <div class="col-12 d-flex justify-content-center rounded theimg"><img class="rounded" :src="post?.img" alt="">
+            </div>
             <div class="col-12 d-flex justify-content-center text-body">
                 <h3>{{ post?.body }}</h3>
             </div>
@@ -39,5 +40,11 @@ export default {
 .text-body {
     color: white !important;
     text-shadow: 2px 2px 2px black;
+    margin-top: 1em;
+}
+
+.theimg {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.575);
+    padding-bottom: 1em;
 }
 </style>

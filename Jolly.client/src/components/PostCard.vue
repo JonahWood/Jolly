@@ -44,7 +44,7 @@ export default {
 }
 
 .theimg {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.575);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.594);
     padding-bottom: 1em;
 }
 </style>
